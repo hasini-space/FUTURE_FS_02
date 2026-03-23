@@ -1,0 +1,78 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mini CRM - Interactive</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Mini CRM 🚀</h1>
+    <nav>
+      <button onclick="showTab('dashboard')">Dashboard</button>
+      <button onclick="showTab('addLead')">Add Lead</button>
+      <button onclick="showTab('leadsList')">Leads List</button>
+    </nav>
+  </header>
+
+  <!-- Dashboard Tab -->
+  <section id="dashboard" class="tab">
+    <h2>Dashboard</h2>
+    <div class="cards">
+      <div class="card">Total Leads: <span id="totalLeads">0</span></div>
+      <div class="card">New: <span id="newLeads">0</span></div>
+      <div class="card">Contacted: <span id="contactedLeads">0</span></div>
+      <div class="card">Converted: <span id="convertedLeads">0</span></div>
+    </div>
+  </section>
+
+  <!-- Add Lead Tab -->
+  <section id="addLead" class="tab">
+    <h2>Add Lead</h2>
+    <form id="leadForm">
+      <input id="name" placeholder="Name" required>
+      <input id="email" placeholder="Email" required>
+      <input id="phone" placeholder="Phone">
+      <input id="status" placeholder="Status (New / Contacted / Converted)" value="New">
+      <input id="notes" placeholder="Notes">
+      <button type="submit">Add Lead</button>
+    </form>
+  </section>
+
+  <!-- Leads List Tab -->
+  <section id="leadsList" class="tab">
+    <h2>Leads List</h2>
+    <input id="search" placeholder="Search by name, email, or status">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Status</th>
+          <th>Notes</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody id="leadTable"></tbody>
+    </table>
+  </section>
+
+  <!-- Status Update Modal -->
+  <div id="statusModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3>Update Lead Status</h3>
+      <select id="modalStatus">
+        <option value="New">New</option>
+        <option value="Contacted">Contacted</option>
+        <option value="Converted">Converted</option>
+      </select>
+      <button id="saveStatusBtn">Save</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
